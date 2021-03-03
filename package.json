@@ -1,6 +1,6 @@
 {
   "name": "glimesh",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Unofficial package to interact with Glimesh API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/D4ddy-LiLd4rk/glimesh.git"
   },
   "keywords": [
-    "streamloots"
+    "glimesh", "api", "stream", "bot"
   ],
   "author": "D4ddy-LiLd4rk",
   "license": "MIT",
