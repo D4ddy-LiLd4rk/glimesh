@@ -1,34 +1,9 @@
-import { Category } from "./API/Category/Category";
 import { ApiClient } from "./ApiClient";
 import { ClientCredentialsAuthProvider } from "./Auth";
-
-export let Glimesh = {
-    "client_id": "fa28803678093d0bd240b7816e5dd76aa6f0176721d1723f1ef9eb4bcfde0dee",
-    "secret": "03fda2826632b380f14e97a6387d86cceccd97b196a74b39777497780ee14aba"
-}
+import { config } from "./config";
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let authProvider = new ClientCredentialsAuthProvider(Glimesh.client_id, Glimesh.secret);
+let authProvider = new ClientCredentialsAuthProvider(config.client_id, config.secret);
 let client = new ApiClient({ authProvider });/*
 client.users.getUserByName("D4ddyLiLd4rk")
     .then(user => {
