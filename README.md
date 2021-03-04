@@ -73,8 +73,20 @@ $ tsd install node
 
 Write some code...
 ```js
+import { RefreshableAuthProvider, StaticAuthProvider, ApiClient, AuthProviderTokens, AuthScopes } from "glimesh";
 
-
+//let authProvider = new ClientCredentialsAuthProvider("Your_Client_ID", "Your_Client_Secret");
+let authProvider = new RefreshableAuthProvider(
+  new StaticAuthProvider("Your_Client_ID",
+  "Your_Access_Token",
+    [AuthScopes.Public, AuthScopes.Email, AuthScopes.Chat, AuthScopes.Streamkey],
+    AuthProviderTokens.App), {
+  clientSecret: "Your_Client_Secret",
+  refreshToken: "Your_Refresh_Token",
+  onRefresh: ({ accessToken, refreshToken, expiryDate }) => {
+  }
+});
+let client = new ApiClient({ authProvider });
 ```
 
 Save the above to a file (index.ts), build and run it!
