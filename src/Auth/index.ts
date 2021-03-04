@@ -15,7 +15,8 @@ export {
 export { TokenInfo } from './TokenInfo';
 export type { TokenInfoData } from './TokenInfo';
 
-export type { AuthProvider, AuthProviderTokens, AuthProviderTokenType } from './AuthProvider/AuthProvider';
+export type { AuthProvider, AuthProviderTokenType } from './AuthProvider/AuthProvider';
+export { AuthProviderTokens } from './AuthProvider/AuthProvider';
 export { ClientCredentialsAuthProvider } from './AuthProvider/ClientCredentialsAuthProvider';
 export { RefreshableAuthProvider } from './AuthProvider/RefreshableAuthProvider';
 export type { RefreshConfig } from './AuthProvider/RefreshableAuthProvider';
