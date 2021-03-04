@@ -53,10 +53,10 @@ client.channels.getChannelByName("D4ddyLiLd4rk")
     .catch(err => {
         console.log(err);
     });
-
+```
 ## Getting Started
 
-Make sure you're running Node v4 and TypeScript 1.7 or higher...
+Make sure you're running Node v12 and TypeScript 4.2 or higher...
 ```
 $ node -v
 v12.18.4
