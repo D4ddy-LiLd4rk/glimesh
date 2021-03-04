@@ -1,38 +1,13 @@
-import { ApiClient } from "./ApiClient";
-import { ClientCredentialsAuthProvider } from "./Auth";
-import { config } from "./config";
+export { ApiClient } from './ApiClient';
+export type { ApiConfig } from './ApiClient';
 
+export type { GlimeshResponse, GlimeshPaginatedResponse, GlimeshPaginatedResponseWithTotal } from './API/GlimeshResponse';
 
-let authProvider = new ClientCredentialsAuthProvider(config.client_id, config.secret);
-let client = new ApiClient({ authProvider });/*
-client.users.getUserByName("D4ddyLiLd4rk")
-    .then(user => {
-        console.log(`With name => ID: ${user?.id}, Name: ${user?.username}`);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+export { Category } from './API/Category/Category';
+export { Channel } from './API/Channel/Channel';
+export { Stream } from './API/Channel/Stream';
+export { Follower } from './API/Follower/Follower';
+//export { Subscription } from './API/Sub/Subscription';
+export { User } from './API/User/User';
 
-client.users.getUserById(2299)
-    .then(user => {
-        console.log(`With id => ID: ${user?.id}, Name: ${user?.username}`);
-    })
-    .catch(err => {
-        console.log(err);
-    });*/
-
-client.categories.getCategoryBySlug("tech")
-    .then(category => {
-        console.log(`With slug => ID: ${category?.id}, Name: ${category?.name}`);
-    })
-    .catch(err => {
-        console.log(err);
-    });
-/*
-client.categories.getCategoryById(2299)
-    .then(category => {
-        console.log(`With id => ID: ${category?.id}, Name: ${category?.ame}`);
-    })
-    .catch(err => {
-        console.log(err);
-    });*/
+export * from './Auth/index';

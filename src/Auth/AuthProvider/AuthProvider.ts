@@ -5,6 +5,11 @@ import type { AccessToken } from '../AccessToken';
  */
 export type AuthProviderTokenType = 'user' | 'app';
 
+export enum AuthProviderTokens {
+	User = "user",
+	App = "app"
+}
+
 /**
  * Describes a class that manages and supplies access tokens.
  *
@@ -50,7 +55,7 @@ export interface AuthProvider {
 	setAccessToken: (token: AccessToken) => void;
 
 	/**
-	 * Requests that the provider fetches a new token from Twitch.
+	 * Requests that the provider fetches a new token from Glimesh.
 	 *
 	 * This method is optional to implement. For some use cases,
 	 * it might not be desirable to e.g. ask the user to log in

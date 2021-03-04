@@ -1,47 +1,40 @@
-import { CategoryResolvable } from "../../Tools";
-import { callApi } from "../apiCall";
-import { GlimeshObject } from "../GlimeshObject";
+import { ApiClient } from "../../ApiClient";
 
-export class Category extends GlimeshObject {
-    id?: number;
-    name?: string;
-    parent?: Category;
-    slug?: string;
-    tagName?: string;  
+export interface CategoryData {
+	id: number;
+    name: string;
+    parent: Category;
+    slug: string;
+    tagName: string; 
+}
 
-    init(): Promise<Category> {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const options = this._createOptions(this._param);
-                const clientId = this._client._authProvider.clientId;
-                const convertedResponse = await callApi(options, clientId);
-                
-                this.id = convertedResponse.data.category.id;
-                this.name = convertedResponse.data.category.name;
-                this.parent = convertedResponse.data.category.parent;
-                this.slug = convertedResponse.data.category.slug;
-                this.tagName = convertedResponse.data.category.tagName;
+export class Category {
+	/** @private */ protected readonly _data: CategoryData;
+	protected readonly _client: ApiClient;
 
-                resolve(this);
-            } catch (err) {
-                reject(err);
-            }
-        });
+	/** @private */
+	constructor(data: CategoryData, client: ApiClient) {
+		this._data = data;
+		this._client = client;
+	}
+
+    get id(): number {
+        return this._data.id;
     }
 
-    _createDataQuery(categoryParam: CategoryResolvable): string {
-        return `
-            query {
-              category(slug: \"${categoryParam}\") {
-                id,
-                name,
-                parent {
-                    id
-                },
-                slug,
-                tagName
-              }
-            }`;
+    get name(): string {
+        return this._data.name;
     }
 
+    get parent(): Category {
+        return this._data.parent;
+    }
+
+    get slug(): string {
+        return this._data.slug;
+    }
+
+    get tagName(): string {
+        return this._data.tagName;
+    }
 }

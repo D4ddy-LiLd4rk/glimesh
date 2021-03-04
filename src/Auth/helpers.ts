@@ -9,7 +9,7 @@ import { ApiCallType } from "./ApiCallOptions";
  * @param clientId The client ID of your application.
  * @param clientSecret The client secret of your application.
  * @param code The authorization code.
- * @param redirectUri The redirect URI. This serves no real purpose here, but must still match one of the redirect URIs you configured in the Twitch Developer dashboard.
+ * @param redirectUri The redirect URI. This serves no real purpose here, but must still match one of the redirect URIs you configured in the Glimesh Application dashboard.
  */
 export async function exchangeCode(
 	clientId: string,
@@ -47,11 +47,12 @@ export async function getAppToken(clientId: string, clientSecret: string): Promi
 			url: 'token',
 			method: 'POST',
 			query: {
-				grant_type: 'client_credentials',
+				grant_type: 'authorization_code',
 				client_id: clientId,
 				client_secret: clientSecret
 			}
-		})
+		},
+		clientId)
 	);
 }
 
@@ -105,8 +106,6 @@ export async function revokeToken(clientId: string, accessToken: string): Promis
  *
  * @param clientId The client ID of your application.
  * @param accessToken The access token to get the information of.
- *
- * You need to obtain one using one of the [Twitch OAuth flows](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/).
  */
 export async function getTokenInfo(accessToken: string, clientId?: string): Promise<TokenInfo> {
 	try {
@@ -192,6 +191,6 @@ export async function transformApiResponse<T>(response: Response): Promise<T> {
 	if (!text) {
 		return (undefined as unknown) as T; // mega oof - glimesh doesn't return a response when it should
 	}
-
+	
 	return JSON.parse(text) as T;
 }

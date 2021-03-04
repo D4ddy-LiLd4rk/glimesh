@@ -41,11 +41,10 @@ export class ClientCredentialsAuthProvider implements AuthProvider {
 				} requested but the client credentials flow does not support scopes`
 			);
 		}
-
 		if (!this._token || this._token.isExpired) {
 			return this.refresh();
 		}
-
+		
 		return this._token;
 	}
 

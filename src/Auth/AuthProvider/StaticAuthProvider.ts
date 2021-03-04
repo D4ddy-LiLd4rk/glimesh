@@ -1,4 +1,5 @@
 import { AuthProvider, AccessToken, AuthProviderTokenType, getTokenInfo } from "..";
+import { AuthScopes, AuthScopeType } from "../../Tools";
 
 /**
  * An auth provider that always returns the same initially given credentials.
@@ -10,7 +11,7 @@ import { AuthProvider, AccessToken, AuthProviderTokenType, getTokenInfo } from "
 export class StaticAuthProvider implements AuthProvider {
 	private readonly _clientId: string;
 	private _accessToken?: AccessToken;
-	private _scopes?: string[];
+	private _scopes?: AuthScopeType[];
 
 	/**
 	 * The type of token the provider holds.
@@ -30,7 +31,7 @@ export class StaticAuthProvider implements AuthProvider {
 	constructor(
 		clientId: string,
 		accessToken?: string | AccessToken,
-		scopes?: string[],
+		scopes?: AuthScopeType[],
 		tokenType: AuthProviderTokenType = 'user'
 	) {
 		this._clientId = clientId || '';
@@ -56,7 +57,7 @@ export class StaticAuthProvider implements AuthProvider {
 	 *
 	 * @param scopes The requested scopes.
 	 */
-	async getAccessToken(scopes?: string | string[]): Promise<AccessToken | null> {
+	async getAccessToken(scopes?: AuthScopeType | AuthScopeType[]): Promise<AccessToken | null> {
 		if (scopes && scopes.length > 0) {
 			if (!this._scopes) {
 				if (!this._accessToken) {

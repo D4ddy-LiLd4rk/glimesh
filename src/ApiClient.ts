@@ -60,7 +60,7 @@ export class ApiClient {
 	 */
 	async getTokenInfo(): Promise<TokenInfo> {
 		try {
-			const data = await this.callApi<TokenInfoData>({ type: ApiCallType.Auth, url: 'validate' });
+			const data = await this.callApi<TokenInfoData>({ method: "POST", type: ApiCallType.Auth, url: 'validate' });
 			return new TokenInfo(data);
 		} catch (e) {
 			if (e instanceof HttpStatusCodeError && e.statusCode === 401) {
@@ -71,7 +71,7 @@ export class ApiClient {
 	}
 
 	/**
-	 * Makes a call to the Twitch API using your access token.
+	 * Makes a call to the Glimesh API using your access token.
 	 *
 	 * @param options The configuration of the call.
 	 */
@@ -124,9 +124,10 @@ export class ApiClient {
 		return new ChannelAPI(this);
 	}
 
-	get followers(): FollowerAPI {
+	//TODO: Implement when available
+	/*get followers(): FollowerAPI {
 		return new FollowerAPI(this);
-	}
+	}*/
 
 	get myself(): MyselfAPI {
 		if (this._config.authProvider instanceof ClientCredentialsAuthProvider) {
@@ -135,9 +136,10 @@ export class ApiClient {
 		return new MyselfAPI(this);
 	}
 
-	get subscriptions(): SubscriptionAPI {
+	//TODO: Implement when available
+	/*get subscriptions(): SubscriptionAPI {
 		return new SubscriptionAPI(this);
-	}
+	}*/
 
     get users(): UserAPI {
         return new UserAPI(this);

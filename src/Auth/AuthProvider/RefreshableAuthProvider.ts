@@ -10,7 +10,7 @@ export interface RefreshConfig {
 	clientSecret: string;
 
 	/**
-	 * The refresh token you got when requesting an access token from Twitch.
+	 * The refresh token you got when requesting an access token from Glimesh.
 	 */
 	refreshToken: string;
 

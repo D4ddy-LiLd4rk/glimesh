@@ -39,6 +39,20 @@ client.categories.getCategoryBySlug("tech")
     .catch(err => {
         console.log(err);
     });
+```
+
+Get Channel by username...
+```js
+let authProvider = new ClientCredentialsAuthProvider("Your-Client-ID", "Your-Client-Secret");
+let client = new ApiClient({ authProvider });
+
+client.channels.getChannelByName("D4ddyLiLd4rk")
+    .then(channel => {
+        console.log(`With id => ID: ${channel?.id}, Streamer: ${channel?.streamer?.username}`);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 ## Getting Started
 
@@ -59,20 +73,8 @@ $ tsd install node
 
 Write some code...
 ```js
-import * as StreamlootsRequest from "streamloots-events";
 
-const streamlootsStream = StreamlootsRequest.listen("Your-Alert-ID");
 
-streamlootsStream
-  .on('gift', giftObj => {
-    console.log(giftObj.toString());
-  })
-  .on('purchase', purchaseObj => {
-    console.log(purchaseObj.toString());
-  })
-  .on('redemption', cardObj => {
-    console.log(cardObj.toString());
-  });
 ```
 
 Save the above to a file (index.ts), build and run it!

@@ -1,5 +1,8 @@
-export declare type Resolvable = UserResolvable | CategoryResolvable;
+export declare type AuthScopeType = "public" | "email" | "chat" | "streamkey" | string;
 
-export declare type UserResolvable = string | number | null;// | User;
-
-export declare type CategoryResolvable = string | number | null;// | User;
+export enum AuthScopes {
+    Public = "public",
+    Email = "email",
+    Chat = "chat",
+    Streamkey = "streamkey"
+}

@@ -20,7 +20,7 @@ export class AccessToken {
 	}
 
 	/**
-	 * The access token which is necessary for every request to the Twitch API.
+	 * The access token which is necessary for every request to the Glimesh API.
 	 */
 	get accessToken(): string {
 		return this._data.access_token;
