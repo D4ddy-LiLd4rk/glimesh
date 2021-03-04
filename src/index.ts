@@ -10,4 +10,6 @@ export { Follower } from './API/Follower/Follower';
 //export { Subscription } from './API/Sub/Subscription';
 export { User } from './API/User/User';
 
+export { AuthScopes } from './Tools'
+
 export * from './Auth/index';

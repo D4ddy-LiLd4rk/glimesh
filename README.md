@@ -102,6 +102,6 @@ To use the sample with your own account, do the following steps:
 
 * Copy your Client ID and Secret. DISCLAIMER: Do not share these with anyone!  
 
-  ![Copy Tokens](https://i.imgur.com/vSwXiRX.png)
+  ![Copy Tokens](https://i.imgur.com/ljCxYpL.png)
 
 Special Thanks to [the Devs of the Twitch Package](https://d-fischer.github.io/twitch/) for their inspirational code over on GitHub.
