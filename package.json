@@ -15,7 +15,10 @@
     "url": "git+https://github.com/D4ddy-LiLd4rk/glimesh.git"
   },
   "keywords": [
-    "glimesh", "api", "stream", "bot"
+    "glimesh",
+    "api",
+    "stream",
+    "bot"
   ],
   "author": "D4ddy-LiLd4rk",
   "license": "MIT",

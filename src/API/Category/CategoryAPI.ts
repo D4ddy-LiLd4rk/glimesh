@@ -51,13 +51,13 @@ export class CategoryAPI extends BaseAPI {
             body: `
             query {
                ${searchQuery} {
-                id,
-                name,
-                parent {
-                    id
+                id
+                name
+                slug
+                tags {
+                  id
+                  name
                 }
-                slug,
-                tagName
               }
             }`
         });

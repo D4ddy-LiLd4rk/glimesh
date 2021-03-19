@@ -5,7 +5,9 @@ export interface GlimeshResponse<T> {
 		channel?: T;
 		channels?: T[];
 		user?: T;
-		users?: T[];		
+		users?: T[];	
+		stream?: T;
+		streams?: T[];		
 	};
 }
 

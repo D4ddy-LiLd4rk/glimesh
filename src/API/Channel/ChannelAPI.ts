@@ -47,24 +47,48 @@ export class ChannelAPI extends BaseAPI {
             query {
               ${searchQuery} {
                 category {
-                    id
-                  }
-                  chatRulesHtml
-                  chatRulesMd
                   id
-                  inaccessible
-                  language
-                  status
-                  stream {
+                  name
+                  slug
+                  tags {
                     id
+                    name
                   }
-                  streamer {
-                    id
-                  }
-                  thumbnail
+                }
+                chatRulesHtml
+                chatRulesMd
+                id
+                inaccessible
+                language
+                status
+                stream {
+                  avgChatters
+                  avgViewers
+                  countChatters
+                  countViewers
+                  endedAt
+                  id
+                  newSubscribers
+                  peakChatters
+                  peakViewers
+                  resubSubscribers
+                  startedAt
                   title
                 }
-              }`
+                streamer {
+                  avatar
+                  confirmedAt
+                  displayname
+                  id
+                  profileContentHtml
+                  profileContentMd
+                  username
+                  youtubeIntroUrl
+                }
+                thumbnail
+                title
+              }
+            }`
         });
         
         if (result.data.channels && multi) {
